@@ -1,8 +1,11 @@
+import * as React from "react";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <>
-      Init...
-    </>
+    <React.Fragment>
+      <Navbar />
+    </React.Fragment>
   );
 }
 

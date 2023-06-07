@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "Oswald";
   src: url("./assets/fonts/Oswald\ Light.ttf");
@@ -14,6 +18,13 @@
   --color-secondary: #f9cc0b;
   --color-accent: #f9f9f9;
   --color-background: #0c1d36;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100vw;
 }
 
 body {
