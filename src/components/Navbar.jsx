@@ -8,7 +8,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import AddIcon from "@mui/icons-material/Add";
 import ArticleIcon from "@mui/icons-material/Article";
 import BugReportIcon from "@mui/icons-material/BugReport";
-
+import AddWorkDialog from "./AddWorkDialog";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -23,6 +23,7 @@ const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +49,14 @@ const Navbar = () => {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
+  };
+
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
   };
 
   return (
@@ -96,10 +105,7 @@ const Navbar = () => {
               }}
             >
               <Tooltip title="Add your work" arrow>
-                <IconButton
-                  href="https://github.com/losier/Project-Hive#Add-Your-Work"
-                  target="_blank"
-                >
+                <IconButton onClick={handleDialogOpen}>
                   <Avatar
                     style={{
                       color: "var(--color-black)",
@@ -181,10 +187,7 @@ const Navbar = () => {
                 onClose={handleDrawerClose}
               >
                 <List>
-                  <ListItemButton
-                    href="https://github.com/losier/Project-Hive#Add-Your-Work"
-                    target="_blank"
-                  >
+                  <ListItemButton onClick={handleDialogOpen}>
                     <ListItemIcon>
                       <AddIcon />
                     </ListItemIcon>
@@ -243,6 +246,9 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      {dialogOpen && (
+        <AddWorkDialog isOpen={dialogOpen} onClose={handleDialogClose} />
+      )}
     </nav>
   );
 };
