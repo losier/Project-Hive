@@ -21,7 +21,7 @@ const CardContainer = () => {
     fetchRepos();
   }, []);
   return (
-    <Grid container spacing={2}>
+    <Grid container rowGap={2} columnSpacing={2}>
       {repos.map((repo) => (
         <Grid item xs={12} sm={6} md={4} key={repo.id}>
           <Cards
